@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Map of Fortune 500 companies",
+  "width": 800,
+  "height": 600,
+  "projection": {"type": "equirectangular"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/Victor-utf/FIT3179-Visualisation-2/main/worldMap.geo.json",
+    "format": {"type": "topojson", "feature": "custom"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Victor-utf/FIT3179-Visualisation-2/main/Count_by_country.csv"
+         },
+         "key": "Country",
+         "fields": ["Count"]
+       }
+    },
+    {"calculate": "datum.Count/1+.1", "as": "newCount"}
+   ],
+   "mark": {"type": "geoshape"},
+   "encoding": {
+    "color": {
+      "field": "newCount",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "tooltip" : [
+      {"field": "properties.name", "type": "nominal", "title": "Country"},
+      {"field": "Count", "type": "quantitative"}
+    ]
+  }
+}
