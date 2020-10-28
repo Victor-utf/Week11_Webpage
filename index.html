@@ -5,25 +5,24 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <title>Week 10 webpage </title>
+  <title>Week 10 webpage</title>
   </head>
   
   <body>
     <h1>Week 10 webpage</h1>
+    
     <p> Visualisation 1 </p>
     <div id="vis1"></div>
     <script type="text/javascript">
-      var code = "js/countMap.json"
-      vegaEmbed("#vis1", code).then(function(result) {}).catch(console.error);
+      var code1 = "js/countMap.json"
+      vegaEmbed("#vis1", code1).then(function(result) {}).catch(console.error);
     </script>
     
     <p> Visualisation 2 </p>    
     <div id="vis2"></div>
-      <script type="text/javascript">
-      var code = ""
-      vegaEmbed("#vis1", code).then(function(result) {}).catch(console.error);
-      </script>
-    
-    
+    <script type="text/javascript">
+      var code2 = "https://raw.githubusercontent.com/Victor-utf/FIT3179_Week10_chart/main/Week%2010%20Chart"
+      vegaEmbed("#vis2", code2).then(function(result) {}).catch(console.error);
+    </script>
   </body>
 </html>
